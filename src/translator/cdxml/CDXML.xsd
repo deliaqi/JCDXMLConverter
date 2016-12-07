@@ -1,0 +1,2347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /ChemDraw/CDXML.dtd 48    4/23/03 12:52p Jsb $ -->
+<!-- This Document Type Definition declares Entities, Elements, Attributes and Notations for the document type "CDXML" -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="CDXML">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="colortable"/>
+        <xs:element minOccurs="0" ref="fonttable"/>
+        <xs:element maxOccurs="unbounded" ref="page"/>
+        <xs:element minOccurs="0" ref="templategrid"/>
+      </xs:sequence>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="MacPrintInfo"/>
+      <xs:attribute name="WinPrintInfo"/>
+      <xs:attribute name="PrintMargins"/>
+      <xs:attribute name="ChainAngle"/>
+      <xs:attribute name="BondSpacing"/>
+      <xs:attribute name="BondLength"/>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="MarginWidth"/>
+      <xs:attribute name="HashSpacing"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="LabelColor"/>
+      <xs:attribute name="LabelLineHeight"/>
+      <xs:attribute name="LabelJustification" default="Left">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Above"/>
+            <xs:enumeration value="Below"/>
+            <xs:enumeration value="Best"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="CaptionFont"/>
+      <xs:attribute name="CaptionSize"/>
+      <xs:attribute name="CaptionFace"/>
+      <xs:attribute name="CaptionColor"/>
+      <xs:attribute name="CaptionLineHeight"/>
+      <xs:attribute name="CaptionJustification" default="Left">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Full"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FractionalWidths" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="InterpretChemically" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomQuery" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomStereo" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomEnhancedStereo" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomNumber" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBondQuery" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBondStereo" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBondRxn" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowTerminalCarbonLabels" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowNonTerminalCarbonLabels" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HideImplicitHydrogens" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Magnification"/>
+      <xs:attribute name="WindowIsZoomed" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="WindowPosition"/>
+      <xs:attribute name="WindowSize"/>
+      <xs:attribute name="CreationUserName"/>
+      <xs:attribute name="CreationDate"/>
+      <xs:attribute name="CreationProgram"/>
+      <xs:attribute name="ModificationUserName"/>
+      <xs:attribute name="ModificationDate"/>
+      <xs:attribute name="ModificationProgram"/>
+      <xs:attribute name="Name"/>
+      <xs:attribute name="Comment"/>
+      <xs:attribute name="CartridgeData"/>
+      <xs:attribute name="FixInPlaceExtent"/>
+      <xs:attribute name="FixInPlaceGap"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="colortable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="color"/>
+      </xs:sequence>
+      <xs:attribute name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="color">
+    <xs:complexType>
+      <xs:attribute name="r" use="required"/>
+      <xs:attribute name="g" use="required"/>
+      <xs:attribute name="b" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fonttable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="font"/>
+      </xs:sequence>
+      <xs:attribute name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="font">
+    <xs:complexType>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="charset"/>
+      <xs:attribute name="name" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="page">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="t"/>
+        <xs:element ref="fragment"/>
+        <xs:element ref="group"/>
+        <xs:element ref="graphic"/>
+        <xs:element ref="altgroup"/>
+        <xs:element ref="curve"/>
+        <xs:element ref="step"/>
+        <xs:element ref="scheme"/>
+        <xs:element ref="spectrum"/>
+        <xs:element ref="embeddedobject"/>
+        <xs:element ref="sequence"/>
+        <xs:element ref="crossreference"/>
+        <xs:element ref="splitter"/>
+        <xs:element ref="table"/>
+        <xs:element ref="bracketedgroup"/>
+        <xs:element ref="border"/>
+        <xs:element ref="geometry"/>
+        <xs:element ref="constraint"/>
+        <xs:element ref="tlcplate"/>
+        <xs:element ref="chemicalproperty"/>
+        <xs:element ref="arrow"/>
+        <xs:element ref="bioshape"/>
+        <xs:element ref="stoichiometrygrid"/>
+        <xs:element ref="plasmidmap"/>
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="rlogic"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="BoundsInParent"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="WidthPages" default="1"/>
+      <xs:attribute name="HeightPages" default="1"/>
+      <xs:attribute name="PrintTrimMarks" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Width"/>
+      <xs:attribute name="Height"/>
+      <xs:attribute name="PageOverlap"/>
+      <xs:attribute name="Header"/>
+      <xs:attribute name="HeaderPosition"/>
+      <xs:attribute name="Footer"/>
+      <xs:attribute name="FooterPosition"/>
+      <xs:attribute name="DrawingSpace" default="pages">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="poster"/>
+            <xs:enumeration value="pages"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="SplitterPositions"/>
+      <xs:attribute name="PageDefinition" default="Undefined">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Undefined"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="TL4"/>
+            <xs:enumeration value="IDTerm"/>
+            <xs:enumeration value="FlushLeft"/>
+            <xs:enumeration value="FlushRight"/>
+            <xs:enumeration value="Reaction1"/>
+            <xs:enumeration value="Reaction2"/>
+            <xs:enumeration value="MulticolumnTL4"/>
+            <xs:enumeration value="MulticolumnNonTL4"/>
+            <xs:enumeration value="UserDefined"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="group">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="t"/>
+        <xs:element ref="fragment"/>
+        <xs:element ref="group"/>
+        <xs:element ref="graphic"/>
+        <xs:element ref="altgroup"/>
+        <xs:element ref="curve"/>
+        <xs:element ref="step"/>
+        <xs:element ref="scheme"/>
+        <xs:element ref="spectrum"/>
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="Integral" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fragment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="n"/>
+        <xs:element ref="b"/>
+        <xs:element ref="t"/>
+        <xs:element ref="graphic"/>
+        <xs:element ref="curve"/>
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="regnum"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="ConnectionOrder"/>
+      <xs:attribute name="SequenceType" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="Peptide1"/>
+            <xs:enumeration value="Peptide3"/>
+            <xs:enumeration value="DNA"/>
+            <xs:enumeration value="RNA"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="Racemic" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Absolute" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Relative" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Formula"/>
+      <xs:attribute name="Weight"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="t">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="p"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="RotationAngle"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="Justification" default="Left">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Full"/>
+            <xs:enumeration value="Above"/>
+            <xs:enumeration value="Below"/>
+            <xs:enumeration value="Best"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineHeight"/>
+      <xs:attribute name="WordWrapWidth"/>
+      <xs:attribute name="LineStarts"/>
+      <xs:attribute name="LabelAlignment" default="Auto">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Above"/>
+            <xs:enumeration value="Below"/>
+            <xs:enumeration value="Best"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="LabelColor"/>
+      <xs:attribute name="LabelJustification" default="Left">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Above"/>
+            <xs:enumeration value="Below"/>
+            <xs:enumeration value="Best"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LabelLineHeight"/>
+      <xs:attribute name="CaptionFont"/>
+      <xs:attribute name="CaptionSize"/>
+      <xs:attribute name="CaptionFace"/>
+      <xs:attribute name="CaptionColor"/>
+      <xs:attribute name="CaptionLineHeight"/>
+      <xs:attribute name="CaptionJustification" default="Left">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Full"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="InterpretChemically" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="s">
+    <xs:complexType mixed="true">
+      <xs:attribute name="font"/>
+      <xs:attribute name="face"/>
+      <xs:attribute name="size"/>
+      <xs:attribute name="color"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="t"/>
+        <xs:element ref="fragment"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="p"/>
+      <xs:attribute name="xyz"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="Element" default="6"/>
+      <xs:attribute name="LabelDisplay" default="Auto">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Above"/>
+            <xs:enumeration value="Below"/>
+            <xs:enumeration value="Best"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="NodeType" default="Element">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Element"/>
+            <xs:enumeration value="ElementList"/>
+            <xs:enumeration value="ElementListNickname"/>
+            <xs:enumeration value="Nickname"/>
+            <xs:enumeration value="Fragment"/>
+            <xs:enumeration value="Formula"/>
+            <xs:enumeration value="GenericNickname"/>
+            <xs:enumeration value="AnonymousAlternativeGroup"/>
+            <xs:enumeration value="NamedAlternativeGroup"/>
+            <xs:enumeration value="MultiAttachment"/>
+            <xs:enumeration value="VariableAttachment"/>
+            <xs:enumeration value="ExternalConnectionPoint"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ElementList"/>
+      <xs:attribute name="GenericList"/>
+      <xs:attribute name="Formula"/>
+      <xs:attribute name="Isotope"/>
+      <xs:attribute name="Charge"/>
+      <xs:attribute name="Radical" default="None">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Singlet"/>
+            <xs:enumeration value="Doublet"/>
+            <xs:enumeration value="Triplet"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FreeSites"/>
+      <xs:attribute name="ImplicitHydrogens" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RingBondCount" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="SpiroOrHigher"/>
+            <xs:enumeration value="Fusion"/>
+            <xs:enumeration value="SimpleRing"/>
+            <xs:enumeration value="AsDrawn"/>
+            <xs:enumeration value="NoRingBonds"/>
+            <xs:enumeration value="Unspecified"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="UnsaturatedBonds" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="MustBeAbsent"/>
+            <xs:enumeration value="MustBePresent"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RxnChange" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RxnStereo" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Inversion"/>
+            <xs:enumeration value="Retention"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Translation" default="Equal">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Equal"/>
+            <xs:enumeration value="Broad"/>
+            <xs:enumeration value="Narrow"/>
+            <xs:enumeration value="Any"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="IsotopicAbundance" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Any"/>
+            <xs:enumeration value="Natural"/>
+            <xs:enumeration value="Enriched"/>
+            <xs:enumeration value="Deficient"/>
+            <xs:enumeration value="Nonnatural"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ExternalConnectionType" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Diamond"/>
+            <xs:enumeration value="Star"/>
+            <xs:enumeration value="PolymerBead"/>
+            <xs:enumeration value="Wavy"/>
+            <xs:enumeration value="Residue"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="AbnormalValence" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="NumHydrogens"/>
+      <xs:attribute name="HDot" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HDash" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Geometry" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="Linear"/>
+            <xs:enumeration value="Bent"/>
+            <xs:enumeration value="TrigonalPlanar"/>
+            <xs:enumeration value="TrigonalPyramidal"/>
+            <xs:enumeration value="SquarePlanar"/>
+            <xs:enumeration value="Tetrahedral"/>
+            <xs:enumeration value="TrigonalBipyramidal"/>
+            <xs:enumeration value="SquarePyramidal"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="Octahedral"/>
+            <xs:enumeration value="6"/>
+            <xs:enumeration value="7"/>
+            <xs:enumeration value="8"/>
+            <xs:enumeration value="9"/>
+            <xs:enumeration value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BondOrdering"/>
+      <xs:attribute name="Attachments"/>
+      <xs:attribute name="GenericNickname"/>
+      <xs:attribute name="AltGroupID"/>
+      <xs:attribute name="SubstituentsUpTo"/>
+      <xs:attribute name="SubstituentsExactly"/>
+      <xs:attribute name="AS" default="U">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="U"/>
+            <xs:enumeration value="N"/>
+            <xs:enumeration value="R"/>
+            <xs:enumeration value="S"/>
+            <xs:enumeration value="r"/>
+            <xs:enumeration value="s"/>
+            <xs:enumeration value="u"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="AtomNumber"/>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomQuery" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomStereo" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomEnhancedStereo" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowAtomNumber" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowTerminalCarbonLabels" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowNonTerminalCarbonLabels" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HideImplicitHydrogens" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="LinkCountLow"/>
+      <xs:attribute name="LinkCountHigh"/>
+      <xs:attribute name="EnhancedStereoType"/>
+      <xs:attribute name="EnhancedStereoGroupNum"/>
+      <xs:attribute name="MarginWidth"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="b">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="Order"/>
+      <xs:attribute name="Display" default="Solid">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dash"/>
+            <xs:enumeration value="Hash"/>
+            <xs:enumeration value="WedgedHashBegin"/>
+            <xs:enumeration value="WedgedHashEnd"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="WedgeBegin"/>
+            <xs:enumeration value="WedgeEnd"/>
+            <xs:enumeration value="Wavy"/>
+            <xs:enumeration value="HollowWedgeBegin"/>
+            <xs:enumeration value="HollowWedgeEnd"/>
+            <xs:enumeration value="WavyWedgeBegin"/>
+            <xs:enumeration value="WavyWedgeEnd"/>
+            <xs:enumeration value="Dot"/>
+            <xs:enumeration value="DashDot"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Display2" default="Solid">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dash"/>
+            <xs:enumeration value="Hash"/>
+            <xs:enumeration value="WedgedHashBegin"/>
+            <xs:enumeration value="WedgedHashEnd"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="WedgeBegin"/>
+            <xs:enumeration value="WedgeEnd"/>
+            <xs:enumeration value="Wavy"/>
+            <xs:enumeration value="HollowWedgeBegin"/>
+            <xs:enumeration value="HollowWedgeEnd"/>
+            <xs:enumeration value="WavyWedgeBegin"/>
+            <xs:enumeration value="WavyWedgeEnd"/>
+            <xs:enumeration value="Dot"/>
+            <xs:enumeration value="DashDot"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="DoublePosition">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="Right"/>
+            <xs:enumeration value="Left"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="B" use="required"/>
+      <xs:attribute name="E" use="required"/>
+      <xs:attribute name="Topology" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Ring"/>
+            <xs:enumeration value="Chain"/>
+            <xs:enumeration value="RingOrChain"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RxnParticipation" default="Unspecified">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="ReactionCenter"/>
+            <xs:enumeration value="MakeOrBreak"/>
+            <xs:enumeration value="ChangeType"/>
+            <xs:enumeration value="MakeAndChange"/>
+            <xs:enumeration value="NotReactionCenter"/>
+            <xs:enumeration value="NoChange"/>
+            <xs:enumeration value="Unmapped"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BeginAttach"/>
+      <xs:attribute name="EndAttach"/>
+      <xs:attribute name="BS" default="U">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="U"/>
+            <xs:enumeration value="N"/>
+            <xs:enumeration value="E"/>
+            <xs:enumeration value="Z"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BondCircularOrdering"/>
+      <xs:attribute name="CrossingBonds"/>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBondQuery" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBondStereo" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBondRxn" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BondSpacing"/>
+      <xs:attribute name="BondSpacingAbs"/>
+      <xs:attribute name="BondLength"/>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="MarginWidth"/>
+      <xs:attribute name="HashSpacing"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="CrossingBondss"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="graphic">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="represent"/>
+        <xs:element ref="t"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="GraphicType" default="Undefined">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Undefined"/>
+            <xs:enumeration value="Line"/>
+            <xs:enumeration value="Arc"/>
+            <xs:enumeration value="Rectangle"/>
+            <xs:enumeration value="Oval"/>
+            <xs:enumeration value="Orbital"/>
+            <xs:enumeration value="Bracket"/>
+            <xs:enumeration value="Symbol"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dashed"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="Wavy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="NoHead"/>
+            <xs:enumeration value="HalfHead"/>
+            <xs:enumeration value="FullHead"/>
+            <xs:enumeration value="Resonance"/>
+            <xs:enumeration value="Equilibrium"/>
+            <xs:enumeration value="Hollow"/>
+            <xs:enumeration value="RetroSynthetic"/>
+            <xs:enumeration value="NoGo"/>
+            <xs:enumeration value="Dipole"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BracketType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="RoundPair"/>
+            <xs:enumeration value="SquarePair"/>
+            <xs:enumeration value="CurlyPair"/>
+            <xs:enumeration value="Square"/>
+            <xs:enumeration value="Curly"/>
+            <xs:enumeration value="Round"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RectangleType"/>
+      <xs:attribute name="OvalType"/>
+      <xs:attribute name="OrbitalType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="s"/>
+            <xs:enumeration value="p"/>
+            <xs:enumeration value="oval"/>
+            <xs:enumeration value="lobe"/>
+            <xs:enumeration value="hybridPlus"/>
+            <xs:enumeration value="hybridMinus"/>
+            <xs:enumeration value="dz2Plus"/>
+            <xs:enumeration value="dz2Minus"/>
+            <xs:enumeration value="dxy"/>
+            <xs:enumeration value="sShaded"/>
+            <xs:enumeration value="sFilled"/>
+            <xs:enumeration value="ovalShaded"/>
+            <xs:enumeration value="ovalFilled"/>
+            <xs:enumeration value="lobeShaded"/>
+            <xs:enumeration value="pShaded"/>
+            <xs:enumeration value="lobeFilled"/>
+            <xs:enumeration value="pFilled"/>
+            <xs:enumeration value="hybridPlusFilled"/>
+            <xs:enumeration value="hybridMinusFilled"/>
+            <xs:enumeration value="dz2PlusFilled"/>
+            <xs:enumeration value="dz2MinusFilled"/>
+            <xs:enumeration value="dxyFilled"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="SymbolType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="LonePair"/>
+            <xs:enumeration value="Electron"/>
+            <xs:enumeration value="RadicalCation"/>
+            <xs:enumeration value="RadicalAnion"/>
+            <xs:enumeration value="CirclePlus"/>
+            <xs:enumeration value="CircleMinus"/>
+            <xs:enumeration value="Dagger"/>
+            <xs:enumeration value="DoubleDagger"/>
+            <xs:enumeration value="Plus"/>
+            <xs:enumeration value="Minus"/>
+            <xs:enumeration value="Racemic"/>
+            <xs:enumeration value="Absolute"/>
+            <xs:enumeration value="Relative"/>
+            <xs:enumeration value="LonePairBar"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FrameType"/>
+      <xs:attribute name="HeadSize"/>
+      <xs:attribute name="LipSize"/>
+      <xs:attribute name="AngularSize"/>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="CaptionFont"/>
+      <xs:attribute name="CaptionSize"/>
+      <xs:attribute name="CaptionFace"/>
+      <xs:attribute name="BracketUsage">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Anypolymer"/>
+            <xs:enumeration value="Component"/>
+            <xs:enumeration value="Copolymer"/>
+            <xs:enumeration value="CopolymerAlternating"/>
+            <xs:enumeration value="CopolymerBlock"/>
+            <xs:enumeration value="CopolymerRandom"/>
+            <xs:enumeration value="Crosslink"/>
+            <xs:enumeration value="Generic"/>
+            <xs:enumeration value="Graft"/>
+            <xs:enumeration value="Mer"/>
+            <xs:enumeration value="MixtureOrdered"/>
+            <xs:enumeration value="MixtureUnordered"/>
+            <xs:enumeration value="Modification"/>
+            <xs:enumeration value="Monomer"/>
+            <xs:enumeration value="MultipleGroup"/>
+            <xs:enumeration value="SRU"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PolymerRepeatPattern">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="HeadToTail"/>
+            <xs:enumeration value="HeadToHead"/>
+            <xs:enumeration value="EitherUnknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PolymerFlipType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="NoFlip"/>
+            <xs:enumeration value="Flip"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Head3D"/>
+      <xs:attribute name="Tail3D"/>
+      <xs:attribute name="Center3D"/>
+      <xs:attribute name="MajorAxisEnd3D"/>
+      <xs:attribute name="MinorAxisEnd3D"/>
+      <xs:attribute name="ShadowSize"/>
+      <xs:attribute name="CornerRadius"/>
+      <xs:attribute name="FadePercent"/>
+      <xs:attribute name="HashSpacing"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="arrow">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="LineType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dashed"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="Wavy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FillType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Shaded"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Hollow"/>
+            <xs:enumeration value="Angle"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadHead">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Full"/>
+            <xs:enumeration value="HalfLeft"/>
+            <xs:enumeration value="HalfRight"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadTail">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Full"/>
+            <xs:enumeration value="HalfLeft"/>
+            <xs:enumeration value="HalfRight"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HeadSize"/>
+      <xs:attribute name="ArrowheadCenterSize"/>
+      <xs:attribute name="ArrowheadWidth"/>
+      <xs:attribute name="ArrowShaftSpacing"/>
+      <xs:attribute name="ArrowEquilibriumRatio"/>
+      <xs:attribute name="AngularSize"/>
+      <xs:attribute name="NoGo">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Cross"/>
+            <xs:enumeration value="Hash"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Dipole" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="CaptionFont"/>
+      <xs:attribute name="CaptionSize"/>
+      <xs:attribute name="CaptionFace"/>
+      <xs:attribute name="Head3D"/>
+      <xs:attribute name="Tail3D"/>
+      <xs:attribute name="Center3D"/>
+      <xs:attribute name="MajorAxisEnd3D"/>
+      <xs:attribute name="MinorAxisEnd3D"/>
+      <xs:attribute name="FadePercent"/>
+      <xs:attribute name="HashSpacing"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="curve">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="CurveType"/>
+      <xs:attribute name="CurvePoints"/>
+      <xs:attribute name="CurvePoints3D"/>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dashed"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="Wavy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FillType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Shaded"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Hollow"/>
+            <xs:enumeration value="Angle"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadHead">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Full"/>
+            <xs:enumeration value="HalfLeft"/>
+            <xs:enumeration value="HalfRight"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadTail">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Full"/>
+            <xs:enumeration value="HalfLeft"/>
+            <xs:enumeration value="HalfRight"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HeadSize"/>
+      <xs:attribute name="HeadCenterSize"/>
+      <xs:attribute name="HeadWidth"/>
+      <xs:attribute name="CurveSpacing"/>
+      <xs:attribute name="FadePercent"/>
+      <xs:attribute name="Closed" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="HashSpacing"/>
+      <xs:attribute name="BoldWidth"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="altgroup">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="t"/>
+        <xs:element ref="fragment"/>
+        <xs:element ref="group"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="p"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="TextFrame"/>
+      <xs:attribute name="GroupFrame"/>
+      <xs:attribute name="Valence"/>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="step">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="ReactionStepReactants"/>
+      <xs:attribute name="ReactionStepProducts"/>
+      <xs:attribute name="ReactionStepPlusses"/>
+      <xs:attribute name="ReactionStepArrows"/>
+      <xs:attribute name="ReactionStepObjectsAboveArrow"/>
+      <xs:attribute name="ReactionStepObjectsBelowArrow"/>
+      <xs:attribute name="ReactionStepAtomMap"/>
+      <xs:attribute name="ReactionStepAtomMapManual"/>
+      <xs:attribute name="ReactionStepAtomMapAuto"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scheme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="step"/>
+      </xs:sequence>
+      <xs:attribute name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="geometry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="Name"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="GeometricFeature" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="PointFromPointPointDistance"/>
+            <xs:enumeration value="PointFromPointPointPercentage"/>
+            <xs:enumeration value="PointFromPointNormalDistance"/>
+            <xs:enumeration value="LineFromPoints"/>
+            <xs:enumeration value="PlaneFromPoints"/>
+            <xs:enumeration value="PlaneFromPointLine"/>
+            <xs:enumeration value="CentroidFromPoints"/>
+            <xs:enumeration value="NormalFromPointPlane"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RelationValue"/>
+      <xs:attribute name="BasisObjects"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="constraint">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="Name"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="ConstraintType" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="Distance"/>
+            <xs:enumeration value="Angle"/>
+            <xs:enumeration value="ExclusionSphere"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ConstraintMin"/>
+      <xs:attribute name="ConstraintMax"/>
+      <xs:attribute name="IgnoreUnconnectedAtoms" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="DihedralIsChiral" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PointIsDirected" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BasisObjects"/>
+      <xs:attribute name="Z"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="templategrid">
+    <xs:complexType>
+      <xs:attribute name="extent"/>
+      <xs:attribute name="PaneHeight"/>
+      <xs:attribute name="NumRows"/>
+      <xs:attribute name="NumColumns"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="spectrum">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="XSpacing"/>
+      <xs:attribute name="XLow"/>
+      <xs:attribute name="XType" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="Wavenumbers"/>
+            <xs:enumeration value="Microns"/>
+            <xs:enumeration value="Hertz"/>
+            <xs:enumeration value="MassUnits"/>
+            <xs:enumeration value="PartsPerMillion"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="YType" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="Absorbance"/>
+            <xs:enumeration value="Transmittance"/>
+            <xs:enumeration value="PercentTransmittance"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="ArbitraryUnits"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Class" default="Unknown">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="Chromatogram"/>
+            <xs:enumeration value="Infrared"/>
+            <xs:enumeration value="UVVis"/>
+            <xs:enumeration value="XRayDiffraction"/>
+            <xs:enumeration value="MassSpectrum"/>
+            <xs:enumeration value="NMR"/>
+            <xs:enumeration value="Raman"/>
+            <xs:enumeration value="Fluorescence"/>
+            <xs:enumeration value="Atomic"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="XAxisLabel"/>
+      <xs:attribute name="YAxisLabel"/>
+      <xs:attribute name="YLow" default="0"/>
+      <xs:attribute name="YScale" default="1"/>
+      <xs:attribute name="IgnoreWarnings" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Warning"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="embeddedobject">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="RotationAngle"/>
+      <xs:attribute name="Edition"/>
+      <xs:attribute name="EditionAlias"/>
+      <xs:attribute name="MacPICT"/>
+      <xs:attribute name="WindowsMetafile"/>
+      <xs:attribute name="OLEObject"/>
+      <xs:attribute name="EnhancedMetafile"/>
+      <xs:attribute name="CompressedWindowsMetafile"/>
+      <xs:attribute name="CompressedOLEObject"/>
+      <xs:attribute name="CompressedEnhancedMetafile"/>
+      <xs:attribute name="UncompressedWindowsMetafileSize"/>
+      <xs:attribute name="UncompressedOLEObjectSize"/>
+      <xs:attribute name="UncompressedEnhancedMetafileSize"/>
+      <xs:attribute name="GIF"/>
+      <xs:attribute name="TIFF"/>
+      <xs:attribute name="PNG"/>
+      <xs:attribute name="JPEG"/>
+      <xs:attribute name="BMP"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="represent">
+    <xs:complexType>
+      <xs:attribute name="attribute" use="required"/>
+      <xs:attribute name="object" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="objecttag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="t"/>
+      </xs:sequence>
+      <xs:attribute name="id"/>
+      <xs:attribute name="TagType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="String"/>
+            <xs:enumeration value="Long"/>
+            <xs:enumeration value="Double"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="DisplayName"/>
+      <xs:attribute name="Tracking" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Persistent" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Value"/>
+      <xs:attribute name="PositioningType" default="auto">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="auto"/>
+            <xs:enumeration value="angle"/>
+            <xs:enumeration value="offset"/>
+            <xs:enumeration value="absolute"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PositioningAngle"/>
+      <xs:attribute name="PositioningOffset"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sequence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="t"/>
+      </xs:sequence>
+      <xs:attribute name="SequenceIdentifier" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crossreference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="t"/>
+      </xs:sequence>
+      <xs:attribute name="CrossReferenceContainer"/>
+      <xs:attribute name="CrossReferenceDocument"/>
+      <xs:attribute name="CrossReferenceIdentifier" use="required"/>
+      <xs:attribute name="CrossReferenceSequence" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="regnum">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="RegistryNumber" use="required"/>
+      <xs:attribute name="RegistryAuthority" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="splitter">
+    <xs:complexType>
+      <xs:attribute name="p"/>
+      <xs:attribute name="PageDefinition" default="Undefined">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Undefined"/>
+            <xs:enumeration value="Center"/>
+            <xs:enumeration value="TL4"/>
+            <xs:enumeration value="IDTerm"/>
+            <xs:enumeration value="FlushLeft"/>
+            <xs:enumeration value="FlushRight"/>
+            <xs:enumeration value="Reaction1"/>
+            <xs:enumeration value="Reaction2"/>
+            <xs:enumeration value="MulticolumnTL4"/>
+            <xs:enumeration value="MulticolumnNonTL4"/>
+            <xs:enumeration value="UserDefined"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="table">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="page"/>
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="MarginWidth"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tlcplate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="tlclane"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="MarginWidth"/>
+      <xs:attribute name="TopLeft"/>
+      <xs:attribute name="TopRight"/>
+      <xs:attribute name="BottomRight"/>
+      <xs:attribute name="BottomLeft"/>
+      <xs:attribute name="OriginFraction"/>
+      <xs:attribute name="SolventFrontFraction"/>
+      <xs:attribute name="ShowOrigin" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowSolventFront" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowBorders" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ShowSideTicks" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Transparent" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HashSpacing"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tlclane">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="tlcspot"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tlcspot">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="embeddedobject"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="Width"/>
+      <xs:attribute name="Height"/>
+      <xs:attribute name="Tail"/>
+      <xs:attribute name="Rf"/>
+      <xs:attribute name="ShowRf" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="CurveType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stoichiometrygrid">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="sgcomponent"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="MarginWidth"/>
+      <xs:attribute name="p"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sgcomponent">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="sgdatum"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Width"/>
+      <xs:attribute name="ComponentIsReactant" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ComponentIsHeader" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ComponentReferenceID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sgdatum">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="embeddedobject"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SGDataValue"/>
+      <xs:attribute name="SGDataType"/>
+      <xs:attribute name="SGPropertyType"/>
+      <xs:attribute name="IsReadOnly" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="IsEdited" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="IsHidden" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plasmidmap">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="plasmidregion"/>
+        <xs:element ref="plasmidmarker"/>
+        <xs:element ref="t"/>
+        <xs:element ref="graphic"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="BoldWidth"/>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LabelFont"/>
+      <xs:attribute name="LabelSize"/>
+      <xs:attribute name="LabelFace"/>
+      <xs:attribute name="MarginWidth"/>
+      <xs:attribute name="NumberBasePairs"/>
+      <xs:attribute name="RingRadius"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plasmidregion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="RegionStart"/>
+      <xs:attribute name="RegionEnd"/>
+      <xs:attribute name="RegionOffset"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="FillType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Shaded"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Hollow"/>
+            <xs:enumeration value="Angle"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ArrowheadTail">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Full"/>
+            <xs:enumeration value="HalfLeft"/>
+            <xs:enumeration value="HalfRight"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HeadSize"/>
+      <xs:attribute name="ArrowheadCenterSize"/>
+      <xs:attribute name="ArrowheadWidth"/>
+      <xs:attribute name="ArrowShaftSpacing"/>
+      <xs:attribute name="AngularSize"/>
+      <xs:attribute name="Head3D"/>
+      <xs:attribute name="Tail3D"/>
+      <xs:attribute name="Center3D"/>
+      <xs:attribute name="MajorAxisEnd3D"/>
+      <xs:attribute name="MinorAxisEnd3D"/>
+      <xs:attribute name="FadePercent"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plasmidmarker">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="t"/>
+        <xs:element ref="curve"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="MarkerOffset"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bracketedgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="bracketattachment"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="bracketedgroup"/>
+      </xs:sequence>
+      <xs:attribute name="id"/>
+      <xs:attribute name="BracketedObjectIDs"/>
+      <xs:attribute name="BracketUsage">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="Anypolymer"/>
+            <xs:enumeration value="Component"/>
+            <xs:enumeration value="Copolymer"/>
+            <xs:enumeration value="CopolymerAlternating"/>
+            <xs:enumeration value="CopolymerBlock"/>
+            <xs:enumeration value="CopolymerRandom"/>
+            <xs:enumeration value="Crosslink"/>
+            <xs:enumeration value="Generic"/>
+            <xs:enumeration value="Graft"/>
+            <xs:enumeration value="Mer"/>
+            <xs:enumeration value="MixtureOrdered"/>
+            <xs:enumeration value="MixtureUnordered"/>
+            <xs:enumeration value="Modification"/>
+            <xs:enumeration value="Monomer"/>
+            <xs:enumeration value="MultipleGroup"/>
+            <xs:enumeration value="SRU"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PolymerRepeatPattern">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="HeadToTail"/>
+            <xs:enumeration value="HeadToHead"/>
+            <xs:enumeration value="EitherUnknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PolymerFlipType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="NoFlip"/>
+            <xs:enumeration value="Flip"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="RepeatCount"/>
+      <xs:attribute name="ComponentOrder"/>
+      <xs:attribute name="SRULabel"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bracketattachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="crossingbond"/>
+      </xs:sequence>
+      <xs:attribute name="id"/>
+      <xs:attribute name="GraphicID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crossingbond">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="BondID" use="required"/>
+      <xs:attribute name="InnerAtomID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="border">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="LineType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dashed"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="Wavy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="Side" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="undefined"/>
+            <xs:enumeration value="top"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="bottom"/>
+            <xs:enumeration value="right"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chemicalproperty">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="ChemicalPropertyType"/>
+      <xs:attribute name="ChemicalPropertyDisplayID"/>
+      <xs:attribute name="ChemicalPropertyIsActive" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PositioningType" default="auto">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="auto"/>
+            <xs:enumeration value="angle"/>
+            <xs:enumeration value="offset"/>
+            <xs:enumeration value="absolute"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PositioningAngle"/>
+      <xs:attribute name="PositioningOffset"/>
+      <xs:attribute name="BasisObjects"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bioshape">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="objecttag"/>
+        <xs:element ref="annotation"/>
+        <xs:element ref="curve"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="xyz"/>
+      <xs:attribute name="SupersededBy"/>
+      <xs:attribute name="Visible" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="bgcolor"/>
+      <xs:attribute name="FadePercent"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="MajorAxisEnd3D"/>
+      <xs:attribute name="MinorAxisEnd3D"/>
+      <xs:attribute name="FillType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Unspecified"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Shaded"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="LineWidth"/>
+      <xs:attribute name="LineType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Solid"/>
+            <xs:enumeration value="Dashed"/>
+            <xs:enumeration value="Bold"/>
+            <xs:enumeration value="Wavy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="BioShapeType">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Undefined"/>
+            <xs:enumeration value="1SubstrateEnzyme"/>
+            <xs:enumeration value="2SubstrateEnzyme"/>
+            <xs:enumeration value="Receptor"/>
+            <xs:enumeration value="GProteinAlpha"/>
+            <xs:enumeration value="GProteinBeta"/>
+            <xs:enumeration value="GProteinGamma"/>
+            <xs:enumeration value="Immunoglobin"/>
+            <xs:enumeration value="IonChannel"/>
+            <xs:enumeration value="EndoplasmicReticulum"/>
+            <xs:enumeration value="Golgi"/>
+            <xs:enumeration value="MembraneLine"/>
+            <xs:enumeration value="MembraneArc"/>
+            <xs:enumeration value="MembraneEllipse"/>
+            <xs:enumeration value="MembraneMicelle"/>
+            <xs:enumeration value="DNA"/>
+            <xs:enumeration value="HelixProtein"/>
+            <xs:enumeration value="Mitochondrion"/>
+            <xs:enumeration value="Cloud"/>
+            <xs:enumeration value="tRNA"/>
+            <xs:enumeration value="RibosomeA"/>
+            <xs:enumeration value="RibosomeB"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="EnzymeWidth"/>
+      <xs:attribute name="EnzymeHeight"/>
+      <xs:attribute name="EnzymeReceptorSize"/>
+      <xs:attribute name="NeckWidth"/>
+      <xs:attribute name="NeckHeight"/>
+      <xs:attribute name="CylinderWidth"/>
+      <xs:attribute name="CylinderHeight"/>
+      <xs:attribute name="CylinderDistance"/>
+      <xs:attribute name="PipeWidth"/>
+      <xs:attribute name="HelixProteinExtra"/>
+      <xs:attribute name="ImmunoglobinHeight"/>
+      <xs:attribute name="ImmunoglobinWidth"/>
+      <xs:attribute name="MembraneElementSize"/>
+      <xs:attribute name="MembraneMajorAxisSize"/>
+      <xs:attribute name="MembraneMinorAxisSize"/>
+      <xs:attribute name="MembraneStartAngle"/>
+      <xs:attribute name="MembraneEndAngle"/>
+      <xs:attribute name="DNAWaveLength"/>
+      <xs:attribute name="DNAWaveWidth"/>
+      <xs:attribute name="DNAWaveOffset"/>
+      <xs:attribute name="DNAWaveHeight"/>
+      <xs:attribute name="GproteinUpperHeight"/>
+      <xs:attribute name="GproteinLowerHeight"/>
+      <xs:attribute name="GolgiLength"/>
+      <xs:attribute name="GolgiHeight"/>
+      <xs:attribute name="GolgiWidth"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="annotation">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="Keyword"/>
+      <xs:attribute name="Content"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rlogicitem">
+    <xs:complexType>
+      <xs:attribute name="id"/>
+      <xs:attribute name="RLogicGroup"/>
+      <xs:attribute name="RLogicOccurrence"/>
+      <xs:attribute name="RLogicIfThenGroup"/>
+      <xs:attribute name="RLogicRestH" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rlogic">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="rlogicitem"/>
+      </xs:choice>
+      <xs:attribute name="id"/>
+      <xs:attribute name="p"/>
+      <xs:attribute name="Z"/>
+      <xs:attribute name="BoundingBox"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="LineHeight"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

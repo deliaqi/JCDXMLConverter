@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">    
+                
+           <xsd:element name="domain-configuration" type="domain-configuration"/>
+                
+           <xsd:complexType name="domain-configuration">
+                <xsd:sequence>
+                    <xsd:element name="parser" type="parser" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="document-preferences" type="document-preferences" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+           </xsd:complexType>
+           
+           <xsd:complexType name="parser">
+                <xsd:sequence>
+                    <xsd:element name="domain-verifier" type="domain-verifier" minOccurs="1" maxOccurs="unbounded"/>
+                </xsd:sequence>
+                <xsd:attribute name="name" type="xsd:string"/>
+           </xsd:complexType>
+           
+           <xsd:complexType name="domain-verifier">
+                <xsd:attribute name="name" type="xsd:string"/>
+           </xsd:complexType>
+           
+           <xsd:complexType name="document-preferences">
+               <xsd:attribute name="shadowRatio" type="xsd:string" default="25"/>
+           </xsd:complexType>
+
+</xsd:schema>
