@@ -7,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
@@ -80,7 +82,7 @@ import translator.utils.StringUtils;
 
 public class CDXMLParser implements Parser<Source> {
     
-    private static final String DTD_URL = "http://www.cambridgesoft.com/xml/cdxml.dtd";
+    private static final String DTD_URL = "http://cdxml.azurewebsites.net/CDXML.DTD";
     
     private static final String BACKGROUND_COLOR = "2";
     private static final String FOREGROUND_COLOR = "3";
@@ -208,10 +210,16 @@ public class CDXMLParser implements Parser<Source> {
             CDXML rootNode = null;
             if(parseableSource instanceof FileImpl){
                 SAXSource internalSource = new SAXSource(internalXMLReader, new InputSource(new FileReader((File) parseableSource)));
-                
-                rootNode = (CDXML) unmarshaller.unmarshal(new FileInputStream((File)parseableSource));
+                //handle invalid accessExternalDTD
+                //rootNode = (CDXML) unmarshaller.unmarshal(new FileInputStream((File)parseableSource));
+                rootNode = (CDXML) unmarshaller.unmarshal(internalSource);
+                //handle name is null
+                //rootNode.setName(((FileImpl) parseableSource).getName());
             } else if(parseableSource instanceof StreamImpl){
-                rootNode = (CDXML) unmarshaller.unmarshal(((StreamImpl) parseableSource).getInputStream());
+            	SAXSource internalSource = new SAXSource(internalXMLReader, new InputSource(new InputStreamReader(((StreamImpl) parseableSource).getInputStream())));
+            	//internalSource.getInputSource().setEncoding("UTF-8");
+            	rootNode = (CDXML) unmarshaller.unmarshal(internalSource);
+            	//rootNode = (CDXML) unmarshaller.unmarshal(((StreamImpl) parseableSource).getInputStream());
             } 
             
             resultingStructure = new ParsedStructure();
@@ -2995,7 +3003,11 @@ public class CDXMLParser implements Parser<Source> {
     }
     
     public static String zeroPadString(String keyString, int numberOfDigits) {
-        int zerosToAdd = numberOfDigits - keyString.length();
+    	/*int zerosToAdd = numberOfDigits;
+    	if(keyString != null){
+    		zerosToAdd = numberOfDigits - keyString.length();
+    	}*/
+    	int zerosToAdd = numberOfDigits - keyString.length();
         StringBuilder padding = new StringBuilder();
         for (int i = 0; i < zerosToAdd; i++) {
             padding.append('0');

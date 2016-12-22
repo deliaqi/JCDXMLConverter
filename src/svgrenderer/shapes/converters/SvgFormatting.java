@@ -1,5 +1,6 @@
 package svgrenderer.shapes.converters;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
@@ -21,6 +22,7 @@ public class SvgFormatting {
         NumberFormat svgDecimalFormat = NumberFormat.getInstance();
         
         svgDecimalFormat.setMaximumFractionDigits(COORDINATE_PRECISION);
+        svgDecimalFormat.setGroupingUsed(false);
         result = svgDecimalFormat.format(coordinate);
         
         return result;
